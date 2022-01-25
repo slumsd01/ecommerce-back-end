@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { exclude } = require('inquirer/lib/objects/separator');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -10,11 +11,15 @@ router.get('/', (req, res) => {
   Product.findAll({
     include: [
       {
-        model: Category
+        model: Category,
+        attributes: ['category_name']
       },
       {
-        model: Tag
-      }
+        model: Tag,
+        attributes: {
+          include: ['tag_name']
+        }
+      } 
     ]
   })
   .then(dbProductData => res.json(dbProductData))
@@ -34,16 +39,12 @@ router.get('/:id', (req, res) => {
     },
     include: [
       {
-        model: Category
-      },
-      {
-        model: Tag
+        model: Category,
+        attributes: ['category_name']
       },
       {
         model: Tag,
-        attributes: ['tag_id'],
-        through: ProductTag,
-        as: 'tagID'
+        attributes: ['tag_name']
       }
     ]
   })
