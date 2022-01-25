@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     console.log(err)
     res.status(500).json(err)
   })
-  // be sure to include its associated Products
+    // be sure to include its associated Products
 });
 
 router.get('/:id', (req, res) => {
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  // expects {"category_name": "Shirts"}
+  // expects {"category_name": "Bags"}
   Category.create({
     category_name: req.body.category_name
   })
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  // expects {"category_name": "Shirts"}
+  // expects {"category_name": "Bags"}
   Category.update(req.body, {
     where: {
       id: req.params.id
