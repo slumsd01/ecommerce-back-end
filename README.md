@@ -18,6 +18,7 @@ Required npms:
 To access the program via `localhost`, a connection to the server must be made using MYSQL. After installing the necessary npms and providing the database access criteria, the connection can be made using the terminal CLI by evoking `npm start`.
 
 ## Demonstration
+https://drive.google.com/file/d/1xIJ-actH3zudKtqksxbMyARP2JDCOji5/view?usp=sharing
 
 ## Contributers
 - Starter code was provided
